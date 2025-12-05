@@ -1,0 +1,22 @@
+{
+  "name": "amber-itch-slideshow",
+  "version": "1.0.0",
+  "description": "Auto-looping itch.io game slideshow with responsive design",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "itch.io",
+    "slideshow",
+    "games"
+  ],
+  "author": "AmberPJ",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
+    "jsdom": "^22.1.0"
+  }
+}

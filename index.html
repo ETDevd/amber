@@ -10,41 +10,66 @@
 </head>
 <body>
     <header>
+        <div class ="arrows">
+            <button id="prev-button" title="Previous Item">
+                <filled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </filled>
+                <outline>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                        <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                    </svg>
+                </outline>
+            </button>
+            <button id="next-button" title="Next Item">
+                <filled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-fill" viewBox="0 0 16 16">
+                        <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                    </svg>
+                </filled>
+                <outline>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+                        <path d="M3.204 11h9.592L8 5.519zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659"/>
+                    </svg>
+                </outline>
+            </button>
+        </div>
     </header>
 
-    <front_page>
-        <section class="item_angel">
-            <div class="item_text">
-                <h1 id="slide-title">AmberPJ</h1>
-                <h2 id="slide-desc">Handmade Crafts & Unique Gifts</h2>
-            </div>
-
-            <div class="item_display">
-                <!-- Slide image will be updated by JS -->
-                <img id="slide-image" src="BG.jpg" alt="Slide image">
-
-                <!-- Buttons: donate (static) and item_link (dynamic link updated per slide) -->
-                <div class="buttons-row">
-                    <div class="buttons donate">
-                        <a href="https://www.buymeacoffee.com/amberpj" title="Donate to AmberPJ">
-                            <img src="donate.png" alt="Donate">
-                        </a>
-                    </div>
-
-                    <div class="buttons item_link">
-                        <a id="slide-link" href="https://ducky-dev.itch.io" title="Open current game on itch.io" target="_blank" rel="noopener noreferrer">
-                            <img src="itemlink.png" alt="Item Link">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <BG>
-            <img src="BG.jpg" alt="Background Image">
-        </BG>
-    </front_page>
-
+    <profile>
+        <picture>
+            <img id="frame" src="frame.png" alt="frame">
+        </picture>
+        <right-column>
+            <info>
+            <a  href="https://x.com/Errorgreenbear" title="learn more">
+                 <img src="learn-more.png" alt="learn more">
+            </a>
+            
+            <a  href="https://www.twitch.tv/errorgreenbear5596" title="Donate">
+                 <img src="donate.png" alt="Donate">
+            </a>
+            </info>
+            <social>
+            <a  href="https://github.com/Errorgreenbear5596-TheColorGod" title="github">
+                <img src="github.png" alt="github">
+            </a>
+            <a href="https://www.youtube.com/@Errorgreenbear5596_TheColorGod" title="youtube">
+                <img src="youtube.png" alt="youtube">
+            </a>
+            <a href="https://www.discord.gg/TgsNVJMr5H" title="Discord">
+                <img src="discord.png" alt="Discord">
+            </a>
+            <a href="u/Errorgreenbear5596" title="itch.io">
+                <img src="itch.io.png" alt="itch.io">
+            </a>
+        </social>
+        </right-column>
+    </profile>
+  
+    
     <footer>
         <p>© 2025 DataWaves. Reserves All rights.</p>
     </footer>

@@ -4,15 +4,12 @@
   - F2: change itch.io URL (prompts)
   - Left/Right arrows: previous/next
   - Auto-loop every 5s, pauses on hover
-  - Smooth fade/slide animations between slides
-  - Tries server API (/api/slides) first, then falls back to direct client-side fetch
-  - Responsive design: adapts to mobile, tablet, and desktop
+  Notes: direct fetch of itch.io pages may be blocked by CORS. When fetch fails, a small set of sample slides is used as fallback.
 */
 
 (() => {
 	const DEFAULT_ITCH_URL = 'https://ducky-dev.itch.io';
 	const AUTO_INTERVAL_MS = 5000;
-	const API_ENDPOINT = '/api/slides'; // Server-side proxy
 
 	const titleEl = document.getElementById('slide-title');
 	const descEl = document.getElementById('slide-desc');
@@ -37,24 +34,6 @@
 	}
 
 	async function fetchSlidesFromItch(url) {
-		try {
-			// Try server API first (handles CORS server-side)
-			const apiUrl = `${API_ENDPOINT}?url=${encodeURIComponent(url)}`;
-			console.log(`Fetching from API: ${apiUrl}`);
-			const res = await fetch(apiUrl);
-			
-			if (res.ok) {
-				const slides = await res.json();
-				if (Array.isArray(slides) && slides.length > 0) {
-					console.log(`Got ${slides.length} slides from server API`);
-					return slides;
-				}
-			}
-		} catch (err) {
-			console.warn('Server API failed, falling back to client-side fetch:', err);
-		}
-
-		// Fallback: client-side fetch (will likely fail due to CORS, but try anyway)
 		try {
 			const res = await fetch(url, { mode: 'cors' });
 			if (!res.ok) throw new Error('Network response not ok');
@@ -98,23 +77,9 @@
 		if (!slides.length) return;
 		current = (i + slides.length) % slides.length;
 		const s = slides[current];
-		
-		// Trigger animation: remove and re-add class to restart animation
-		imgEl.style.animation = 'none';
-		titleEl.style.animation = 'none';
-		descEl.style.animation = 'none';
-		
-		// Force reflow to restart animation
-		void imgEl.offsetWidth;
-		
-		imgEl.style.animation = '';
-		titleEl.style.animation = '';
-		descEl.style.animation = '';
-		
 		titleEl.textContent = s.title || '';
 		descEl.textContent = s.desc || '';
 		imgEl.src = s.img || 'BG.jpg';
-		imgEl.alt = s.title || 'Slide image';
 		linkEl.href = s.url || itchUrl;
 	}
 
